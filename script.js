@@ -22,10 +22,15 @@ class LinkedList {
     // This function should create a new node and add it to the end of the linkedList
     let newNode = new Node(value, null);
 
-    // I think maybe a while loop to start at the head and move through the list?
-    while(this.headNode.reference !== null){
-
+    if (this.headNode.reference == null){
+        this.headNode = newNode;
     }
+// I think maybe a while loop to start at the head and move through the list?
+while(this.headNode.reference !== null){
+    this.next = this.next.next;
+}
+// Not sure about that code, but somthing along these lines^^
+
 
   }
   preprend(value){
@@ -48,3 +53,15 @@ class Node {
 let node1 = new Node(`fiddlesticks`, null);
 
 node1.log();
+
+
+let newLinkedList = new LinkedList;
+newLinkedList.headNode = node1;
+
+console.log(newLinkedList.headNode.value)
+
+
+let Numbers = new LinkedList("Numbers");
+Numbers.append(43);
+
+console.log(Numbers.headNode.value)
