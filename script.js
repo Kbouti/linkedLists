@@ -7,15 +7,25 @@ console.log(`Hello world!`)
 // helpful review on classes, constructors, and factories:
 // https://www.youtube.com/watch?v=fbuyliXlDGI
 
-class linkedList{
-    constructor(name){
+class LinkedList{
+    constructor(name, headNode){
         this.name = name;
+        this.headNode = headNode;
     }
 }
 
-class node{
+class Node{
     constructor(value, reference){
         this.value = value;
         this.reference = reference;
     }
+
+    log(){
+        console.log(this);
+        console.log(this.value);
+    }
 }
+
+let node1 = new Node(`fiddlesticks`, null);
+
+node1.log()
