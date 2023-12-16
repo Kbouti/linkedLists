@@ -20,14 +20,17 @@ class LinkedList {
   }
   append(value) {
     // This function should create a new node and add it to the end of the linkedList
+    console.log(`Attempting to append a node`)
     let newNode = new Node(value, null);
 
     if (this.headNode.reference == null){
-        this.headNode = newNode;
+      console.log('this.headNode.reference == null')
+        this.headNode.reference = newNode;
     }
 // I think maybe a while loop to start at the head and move through the list?
-while(this.headNode.reference !== null){
-    this.next = this.next.next;
+else if(this.headNode.reference !== null){
+  console.log(`this.head reference != null`)
+    // this.next = this.next.next;
 }
 // Not sure about that code, but somthing along these lines^^
 
@@ -50,18 +53,16 @@ class Node {
   }
 }
 
-let node1 = new Node(`fiddlesticks`, null);
-
-node1.log();
-
-
-let newLinkedList = new LinkedList;
-newLinkedList.headNode = node1;
-
-console.log(newLinkedList.headNode.value)
+// let node1 = new Node(`fiddlesticks`, null);
+// node1.log();
+// let newLinkedList = new LinkedList;
+// newLinkedList.headNode = node1;
+// console.log(newLinkedList.headNode.value)
 
 
 let Numbers = new LinkedList("Numbers");
 Numbers.append(43);
 
 console.log(Numbers.headNode.value)
+
+Numbers.append(22)
