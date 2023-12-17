@@ -19,6 +19,11 @@ class LinkedList {
   }
   append(value) {
     // This function should create a new node and add it to the end of the linkedList
+
+// We need to establish a variable that acts as the last node. We need a pointer
+// If reference === null, this is the last node. else, move to the next node and check that one's reference
+// Read linkedList article -12/17
+
     console.log(`Attempting to append a node`);
     let newNode = new Node(value, null);
 
