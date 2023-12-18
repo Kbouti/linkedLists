@@ -17,31 +17,21 @@ class LinkedList {
     this.headNode = null;
   }
   append(value) {
-    // This function should create a new node and add it to the end of the linkedList
-    console.log(`Append triggered for ${value}`);
+    // This function creates a new node and adds it to the end of the linkedList
     if (this.headNode === null) {
-      console.log(`creating and adding first node ${value}`);
       this.headNode = new Node(value);
     } else {
-      console.log(`Head node exists: ${this.headNode.value}`);
       let currentNode = this.headNode;
-      console.log(`currentNode: ${currentNode.value}`);
       while (currentNode.next !== null) {
-        console.log(`while loop triggered`);
         currentNode = currentNode.next;
-        console.log(`currentNode: ${currentNode.value}`);
       }
       currentNode.next = new Node(value);
-      console.log(`created new node ${value}`);
     }
-    console.log(`Done with ${value}`);
   }
 
   prepend(value) {
     // This function creates a new node and adds it to the beginning of the linkedList
-    // If there are no other nodes, the first step is the same as above:
     if (this.headNode === null) {
-      console.log(`creating and adding first node ${value}`);
       this.headNode = new Node(value);
     } else {
       let temp = this.headNode;
@@ -63,12 +53,6 @@ class Node {
     console.log(this.next);
   }
 }
-
-// let node1 = new Node(`fiddlesticks`, null);
-// node1.log();
-// let newLinkedList = new LinkedList;
-// newLinkedList.headNode = node1;
-// console.log(newLinkedList.headNode.value)
 
 let Numbers = new LinkedList("Numbers");
 
