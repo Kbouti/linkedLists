@@ -22,10 +22,10 @@ class LinkedList {
       this.headNode = new Node(value);
     } else {
       let currentNode = this.headNode;
-      while (currentNode.next !== null){
+      while (currentNode.next !== null) {
         currentNode = currentNode.next;
-      } currentNode.next = new Node(value);
-      
+      }
+      currentNode.next = new Node(value);
     }
   }
 
@@ -59,11 +59,14 @@ Numbers.append(43);
 console.log(Numbers.headNode.value);
 Numbers.headNode.log();
 
-
 Numbers.append(22);
 Numbers.append(225);
 // console.log(Numbers)
 // This only (kinda) works for adding one node,  doesn't work for adding subsequent nodes
 
+Numbers.headNode.next.log();
 
-Numbers.headNode.next.next.log()
+
+
+// *********************************************************************************************************
+// This isn't quite working. The .next reference from the first node is still null.
