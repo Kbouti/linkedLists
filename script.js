@@ -18,15 +18,24 @@ class LinkedList {
   }
   append(value) {
     // This function should create a new node and add it to the end of the linkedList
+    console.log(`Append triggered for ${value}`);
     if (this.headNode === null) {
+      console.log(`creating and adding first node ${value}`)
       this.headNode = new Node(value);
     } else {
+      console.log(`Head node exists: ${this.headNode.value}`);
       let currentNode = this.headNode;
+      console.log(`currentNode: ${currentNode.value}`);
       while (currentNode.next !== null) {
+        console.log(`while loop triggered`)
         currentNode = currentNode.next;
+        console.log(`currentNode: ${currentNode.value}`);
+
       }
       currentNode.next = new Node(value);
+      console.log(`created new node ${value}`)
     }
+    console.log(`Done with ${value}`)
   }
 
   preprend(value) {
@@ -55,18 +64,12 @@ class Node {
 
 let Numbers = new LinkedList("Numbers");
 Numbers.append(43);
-
-console.log(Numbers.headNode.value);
-Numbers.headNode.log();
-
 Numbers.append(22);
 Numbers.append(225);
-// console.log(Numbers)
+console.log(Numbers)
 // This only (kinda) works for adding one node,  doesn't work for adding subsequent nodes
 
-Numbers.headNode.next.log();
+// Numbers.headNode.next.log();
 
-
-
-// *********************************************************************************************************
-// This isn't quite working. The .next reference from the first node is still null.
+console.log(Numbers.headNode.next)
+console.log(Numbers.headNode)
