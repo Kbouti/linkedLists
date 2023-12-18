@@ -74,6 +74,21 @@ class LinkedList {
     }
     return currentNode;
   }
+
+  at(index){
+    let count = 0;
+    let currentNode = this.headNode;
+    if (index == 0){
+      return currentNode;
+    } 
+    while(currentNode.next !== null){
+      count++
+      currentNode = currentNode.next;
+      if (count == index){
+        return currentNode;
+      }
+    }
+  }
 }
 
 
@@ -98,7 +113,5 @@ Numbers.append(43);
 Numbers.append(435);
 Numbers.append(4355);
 
-console.log(Numbers);
-console.log(Numbers.size());
-console.log(Numbers.head());
-console.log(Numbers.tail());
+console.log(Numbers.at(0));
+console.log(Numbers.at(2));
