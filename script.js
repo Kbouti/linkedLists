@@ -60,7 +60,24 @@ class LinkedList {
     console.log(`Final count: ${count}`);
     return count;
   }
+
+  head(){
+    // Returns the first node in the list
+    return this.headNode;
+  }
+
+  tail(){
+    // Returns the last node in the list
+    let currentNode = this.headNode;
+    while(currentNode.next !== null){
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
 }
+
+
+
 
 class Node {
   constructor(value) {
@@ -82,4 +99,6 @@ Numbers.append(435);
 Numbers.append(4355);
 
 console.log(Numbers);
-Numbers.size();
+console.log(Numbers.size());
+console.log(Numbers.head());
+console.log(Numbers.tail());
