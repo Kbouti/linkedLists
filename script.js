@@ -13,28 +13,19 @@ console.log(`Hello world!`);
 // https://www.freecodecamp.org/news/how-linked-lists-work/
 
 class LinkedList {
-  constructor(name) {
-    this.name = name;
-    this.headNode = new Node(null, null);
+  constructor() {
+    this.headNode = null;
   }
   append(value) {
     // This function should create a new node and add it to the end of the linkedList
-
-// We need to establish a variable that acts as the last node. We need a pointer
-// If reference === null, this is the last node. else, move to the next node and check that one's reference
-// Read linkedList article -12/17
-
-    console.log(`Attempting to append a node`);
-    let newNode = new Node(value, null);
-
-    if (this.headNode.reference == null) {
-      console.log("this.headNode.reference == null");
-      this.headNode.reference = newNode;
-    }
-    // I think maybe a while loop to start at the head and move through the list?
-    else if (this.headNode.reference !== null) {
-      console.log(`this.head reference != null`);
-      this.headNode.reference.reference = newNode;
+    if (this.headNode === null) {
+      this.headNode = new Node(value);
+    } else {
+      let currentNode = this.headNode;
+      while (currentNode.next !== null){
+        currentNode = currentNode.next;
+      } currentNode.next = new Node(value);
+      
     }
   }
 
@@ -44,14 +35,15 @@ class LinkedList {
 }
 
 class Node {
-  constructor(value, reference) {
+  constructor(value) {
     this.value = value;
-    this.reference = reference;
+    this.next = null;
   }
 
   log() {
     console.log(this);
     console.log(this.value);
+    console.log(this.next);
   }
 }
 
@@ -65,7 +57,13 @@ let Numbers = new LinkedList("Numbers");
 Numbers.append(43);
 
 console.log(Numbers.headNode.value);
+Numbers.headNode.log();
+
+
 Numbers.append(22);
 Numbers.append(225);
-console.log(Numbers)
+// console.log(Numbers)
 // This only (kinda) works for adding one node,  doesn't work for adding subsequent nodes
+
+
+Numbers.headNode.next.next.log()
