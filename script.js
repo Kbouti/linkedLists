@@ -39,6 +39,27 @@ class LinkedList {
       this.headNode.next = temp;
     }
   }
+
+  size() {
+    // This function returns the number of nodes in the list
+    let count = 0;
+    let currentNode = this.headNode;
+    if (currentNode == null) {
+      console.log(`nuthin in here: ${count}`);
+      return count;
+    }
+    count++;
+    if (currentNode.next == null) {
+      console.log(`only one node found: count is ${count}`);
+      return count;
+    }
+    while (currentNode.next !== null) {
+      count++;
+      currentNode = currentNode.next;
+    }
+    console.log(`Final count: ${count}`);
+    return count;
+  }
 }
 
 class Node {
@@ -56,26 +77,9 @@ class Node {
 
 let Numbers = new LinkedList("Numbers");
 
-// Numbers.append(43);
-// Numbers.append(22);
-// Numbers.append(225);
-
-
-Numbers.prepend(10);
-Numbers.prepend(20);
-Numbers.prepend(30);
-
-Numbers.append(5);
-Numbers.prepend(40);
-
+Numbers.append(43);
+Numbers.append(435);
+Numbers.append(4355);
 
 console.log(Numbers);
-
-
-console.log(Numbers.headNode.value);
-console.log(Numbers.headNode.next.value);
-console.log(Numbers.headNode.next.next.value);
-console.log(Numbers.headNode.next.next.next.value);
-console.log(Numbers.headNode.next.next.next.next.value);
-
-
+Numbers.size();
