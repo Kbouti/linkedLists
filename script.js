@@ -61,38 +61,51 @@ class LinkedList {
     return count;
   }
 
-  head(){
+  head() {
     // Returns the first node in the list
     return this.headNode;
   }
 
-  tail(){
+  tail() {
     // Returns the last node in the list
     let currentNode = this.headNode;
-    while(currentNode.next !== null){
+    while (currentNode.next !== null) {
       currentNode = currentNode.next;
     }
     return currentNode;
   }
 
-  at(index){
+  at(index) {
+    // Returns the element at given index
     let count = 0;
     let currentNode = this.headNode;
-    if (index == 0){
+    if (index == 0) {
       return currentNode;
-    } 
-    while(currentNode.next !== null){
-      count++
+    }
+    while (currentNode.next !== null) {
+      count++;
       currentNode = currentNode.next;
-      if (count == index){
+      if (count == index) {
         return currentNode;
       }
     }
   }
+
+  pop() {
+    //Removes the last node from the list
+    let currentNode = this.headNode;
+    let nextNode = currentNode.next;
+    if (nextNode == null) {
+      this.headNode = null;
+    }
+    while (nextNode.next !== null) {
+      currentNode = currentNode.next;
+      nextNode = nextNode.next;
+    }
+    currentNode.next = null;
+    return this;
+  }
 }
-
-
-
 
 class Node {
   constructor(value) {
@@ -113,5 +126,11 @@ Numbers.append(43);
 Numbers.append(435);
 Numbers.append(4355);
 
-console.log(Numbers.at(0));
-console.log(Numbers.at(2));
+console.log(Numbers.size());
+// console.log(Numbers.at(1));
+// console.log(Numbers.at(2));
+
+Numbers.pop();
+Numbers.append(432);
+Numbers.pop();
+console.log(Numbers.size());
