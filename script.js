@@ -106,16 +106,15 @@ class LinkedList {
     return this;
   }
 
-  contains(value){
+  contains(value) {
     // Returns true if the passed value is in the list, otherwise returns false
     let currentNode = this.headNode;
-    if (currentNode.value == value){
+    if (currentNode.value == value) {
       return true;
-    } else if (currentNode.next == null){
-      return false;
-    } while (currentNode.next !== null){
+    }
+    while (currentNode.next !== null) {
       currentNode = currentNode.next;
-      if (currentNode.value == value){
+      if (currentNode.value == value) {
         return true;
       }
     }
@@ -141,10 +140,10 @@ let Numbers = new LinkedList("Numbers");
 Numbers.append(43);
 Numbers.append(435);
 Numbers.append(4355);
-Numbers.append(`shitfuck`)
+Numbers.append(`shitfuck`);
 
 console.log(Numbers.size());
 // console.log(Numbers.at(1));
 // console.log(Numbers.at(2));
 
-console.log(Numbers.contains(`shitfuck`))
+console.log(Numbers.contains(43556));
