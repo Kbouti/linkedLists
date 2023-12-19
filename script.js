@@ -120,6 +120,24 @@ class LinkedList {
     }
     return false;
   }
+
+find(value){
+  // Returns the index of the node containing the value, or null if not found
+  let count = 0;
+  let currentNode = this.headNode;
+  if (currentNode.value === value){
+    return count;
+  }
+  while (currentNode.next !== null){
+    count++;
+    currentNode = currentNode.next;
+    if (currentNode.value === value){
+      return count;
+    }
+  }
+  return null;
+}
+
 }
 
 class Node {
@@ -146,4 +164,4 @@ console.log(Numbers.size());
 // console.log(Numbers.at(1));
 // console.log(Numbers.at(2));
 
-console.log(Numbers.contains(43556));
+console.log(Numbers.find(436564))
