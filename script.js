@@ -166,6 +166,7 @@ class LinkedList {
   // Extra Credit
 
   insertAt(value, index) {
+  // Inserts a node at given index
     let listLength = this.size();
     if (index < 1) {
       this.prepend(value);
@@ -186,6 +187,14 @@ class LinkedList {
     previousNode.next = new Node(value);
     previousNode.next.next = currentNode;
     return this;
+  }
+
+  removeAt(index){
+    //Removes the node at given index
+    let listLength = this.size();
+    if (index >= listLength){
+      console.log(`That's too high`)
+    }
   }
 }
 
