@@ -141,6 +141,9 @@ find(value){
 toString(){
   let string = ``
   let currentNode = this.headNode;
+  if (currentNode === null){
+    return `Empty Linked List`
+  }
   if (currentNode.next == null){
     string = `${currentNode.value} -> null`
     return string;
