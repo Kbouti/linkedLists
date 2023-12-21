@@ -139,6 +139,7 @@ class LinkedList {
   }
 
   toString() {
+    // Prints a string representation of the list in the console
     let string = ``;
     let currentNode = this.headNode;
     if (currentNode === null) {
@@ -166,7 +167,7 @@ class LinkedList {
   // Extra Credit
 
   insertAt(value, index) {
-  // Inserts a node at given index
+    // Inserts a node at given index
     let listLength = this.size();
     if (index < 1) {
       this.prepend(value);
@@ -189,34 +190,31 @@ class LinkedList {
     return this;
   }
 
-  removeAt(index){
+  removeAt(index) {
     //Removes the node at given index
     let listLength = this.size();
-    if (index >= listLength){
-      console.log(`The provided index is too high`)
+    if (index >= listLength) {
+      console.log(`The provided index is too high`);
       return this;
     }
-    if (index < 0){
+    if (index < 0) {
       console.log(`Can't have a negative index`);
       return this;
     }
     let count = 0;
     let currentNode = this.headNode;
     let previousNode;
-    if (count === index){
+    if (count === index) {
       this.headNode = this.headNode.next;
-      return this
+      return this;
     }
-    while (count !== index){
-      // console.log(`test 1`);
+    while (count !== index) {
       previousNode = currentNode;
-      // console.log(`test 2`);
       currentNode = currentNode.next;
-      count++
+      count++;
     }
     previousNode.next = currentNode.next;
     return this;
-
   }
 }
 
@@ -238,7 +236,7 @@ let Numbers = new LinkedList("Numbers");
 Numbers.append(43);
 Numbers.append(435);
 Numbers.append(4355);
-Numbers.append(`shitfuck`);
+Numbers.append(`poop`);
 
 console.log(Numbers.size());
 // console.log(Numbers.at(1));
