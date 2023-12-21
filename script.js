@@ -193,8 +193,30 @@ class LinkedList {
     //Removes the node at given index
     let listLength = this.size();
     if (index >= listLength){
-      console.log(`That's too high`)
+      console.log(`The provided index is too high`)
+      return this;
     }
+    if (index < 0){
+      console.log(`Can't have a negative index`);
+      return this;
+    }
+    let count = 0;
+    let currentNode = this.headNode;
+    let previousNode;
+    if (count === index){
+      this.headNode = this.headNode.next;
+      return this
+    }
+    while (count !== index){
+      // console.log(`test 1`);
+      previousNode = currentNode;
+      // console.log(`test 2`);
+      currentNode = currentNode.next;
+      count++
+    }
+    previousNode.next = currentNode.next;
+    return this;
+
   }
 }
 
@@ -225,5 +247,5 @@ console.log(Numbers.size());
 // Numbers.pop();
 // Numbers.pop();
 console.log(Numbers.toString());
-console.log(Numbers.insertAt(23, 5));
+console.log(Numbers.removeAt(2));
 console.log(Numbers.toString());
