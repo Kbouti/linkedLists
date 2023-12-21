@@ -45,19 +45,19 @@ class LinkedList {
     let count = 0;
     let currentNode = this.headNode;
     if (currentNode == null) {
-      console.log(`nuthin in here: ${count}`);
+      // console.log(`nuthin in here: ${count}`);
       return count;
     }
     count++;
     if (currentNode.next == null) {
-      console.log(`only one node found: count is ${count}`);
+      // console.log(`only one node found: count is ${count}`);
       return count;
     }
     while (currentNode.next !== null) {
       count++;
       currentNode = currentNode.next;
     }
-    console.log(`Final count: ${count}`);
+    // console.log(`Final count: ${count}`);
     return count;
   }
 
@@ -121,49 +121,70 @@ class LinkedList {
     return false;
   }
 
-find(value){
-  // Returns the index of the node containing the value, or null if not found
-  let count = 0;
-  let currentNode = this.headNode;
-  if (currentNode.value === value){
-    return count;
-  }
-  while (currentNode.next !== null){
-    count++;
-    currentNode = currentNode.next;
-    if (currentNode.value === value){
+  find(value) {
+    // Returns the index of the node containing the value, or null if not found
+    let count = 0;
+    let currentNode = this.headNode;
+    if (currentNode.value === value) {
       return count;
     }
+    while (currentNode.next !== null) {
+      count++;
+      currentNode = currentNode.next;
+      if (currentNode.value === value) {
+        return count;
+      }
+    }
+    return null;
   }
-  return null;
-}
 
-toString(){
-  let string = ``
-  let currentNode = this.headNode;
-  if (currentNode === null){
-    return `Empty Linked List`
+  toString() {
+    let string = ``;
+    let currentNode = this.headNode;
+    if (currentNode === null) {
+      return `Empty Linked List`;
+    }
+    if (currentNode.next == null) {
+      string = `${currentNode.value} -> null`;
+      return string;
+    }
+    while (currentNode !== null) {
+      let newValue = currentNode.value;
+      if (string === ``) {
+        string = `${newValue} ->`;
+        currentNode = currentNode.next;
+      } else {
+        let temp = string;
+        string = `${temp} ${newValue} ->`;
+        currentNode = currentNode.next;
+      }
+    }
+    return `${string} null`;
   }
-  if (currentNode.next == null){
-    string = `${currentNode.value} -> null`
-    return string;
-  }
-  while (currentNode !== null){
-    let newValue = currentNode.value;
-    if (string === ``){
-      string = `${newValue} ->`
+
+  // ************************************************************************************************************************
+  // Extra Credit
+
+  insertAt(value, index) {
+    let listLength = this.size();
+    if (index < 1) {
+      this.append(value)
+      return this
+    }
+
+    let indexCount = 0;
+    let currentNode = this.headNode;
+    let previousNode;
+    while (indexCount !== index){
+      indexCount++;
+      console.log(`incrementing indexCount`)
+      previousNode = currentNode;
       currentNode = currentNode.next;
     }
-    else {
-    let temp = string;
-    string = `${temp} ${newValue} ->`
-    currentNode = currentNode.next;
-    }
+previousNode.next = new Node(value);
+previousNode.next.next = currentNode;
+return this
   }
-
-  return `${string} null`;
-}
-
 }
 
 class Node {
@@ -193,3 +214,6 @@ console.log(Numbers.size());
 // Numbers.pop();
 // Numbers.pop();
 console.log(Numbers.toString());
+console.log(Numbers.insertAt(23, 1));
+console.log(Numbers.toString());
+
