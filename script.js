@@ -168,22 +168,24 @@ class LinkedList {
   insertAt(value, index) {
     let listLength = this.size();
     if (index < 1) {
-      this.append(value)
-      return this
+      this.prepend(value);
+      return this;
     }
-
+    if (index >= listLength) {
+      this.append(value);
+      return this;
+    }
     let indexCount = 0;
     let currentNode = this.headNode;
     let previousNode;
-    while (indexCount !== index){
+    while (indexCount !== index) {
       indexCount++;
-      console.log(`incrementing indexCount`)
       previousNode = currentNode;
       currentNode = currentNode.next;
     }
-previousNode.next = new Node(value);
-previousNode.next.next = currentNode;
-return this
+    previousNode.next = new Node(value);
+    previousNode.next.next = currentNode;
+    return this;
   }
 }
 
@@ -214,6 +216,5 @@ console.log(Numbers.size());
 // Numbers.pop();
 // Numbers.pop();
 console.log(Numbers.toString());
-console.log(Numbers.insertAt(23, 1));
+console.log(Numbers.insertAt(23, 5));
 console.log(Numbers.toString());
-
