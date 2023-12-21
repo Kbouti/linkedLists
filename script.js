@@ -138,6 +138,29 @@ find(value){
   return null;
 }
 
+toString(){
+  let string = ``
+  let currentNode = this.headNode;
+  if (currentNode.next == null){
+    string = `${currentNode.value} -> null`
+    return string;
+  }
+  while (currentNode !== null){
+    let newValue = currentNode.value;
+    if (string === ``){
+      string = `${newValue} ->`
+      currentNode = currentNode.next;
+    }
+    else {
+    let temp = string;
+    string = `${temp} ${newValue} ->`
+    currentNode = currentNode.next;
+    }
+  }
+
+  return `${string} null`;
+}
+
 }
 
 class Node {
@@ -163,5 +186,7 @@ Numbers.append(`shitfuck`);
 console.log(Numbers.size());
 // console.log(Numbers.at(1));
 // console.log(Numbers.at(2));
-
-console.log(Numbers.find(436564))
+// Numbers.pop();
+// Numbers.pop();
+// Numbers.pop();
+console.log(Numbers.toString());
